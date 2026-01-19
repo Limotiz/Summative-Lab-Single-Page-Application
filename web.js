@@ -5,6 +5,7 @@ const defination_container = document.querySelector(".def");
 const audio = document.getElementById("audio");
 const saveBtn = document.getElementById("saveBtn");
 
+// adding event listener for the search button
 
 search_btn.addEventListener("click", e => {
     e.preventDefault();
@@ -24,9 +25,8 @@ async function fetchWord(word) {
 
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
     const data = await response.json();
-    console.log(data);
-
-
+    
+  
     // if array exist but empty
     if(data.length === 0){
         not_found.innerText = "No word found";
@@ -45,17 +45,16 @@ async function fetchWord(word) {
     not_found.appendChild(suggestion);
 });
 
-
 return;
     }
-//defination
+//displaying defination
 
 let definitionText =
   data[0].meanings[0].definitions[0].definition;
 
-defination_container.innerText = definitionText;
+  defination_container.innerText = definitionText;
 
-//audio
+//adding and dispalying the audio
  const audioSrc = data.phonetics.find(p => p.audio)?.audio;
   if (audioSrc) {
     audio.src = audioSrc;
@@ -71,3 +70,5 @@ saveBtn.addEventListener("click", () => {
 });
 
 }
+
+

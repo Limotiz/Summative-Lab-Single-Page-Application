@@ -61,3 +61,12 @@ body {
 .content .input button:hover{
     background: red ;
 }
+.data-section .def{
+    color: black;
+    font-size: 17px;
+}
+
+.data-section audio{
+    margin-top: 15px;
+    border-radius: 10px;
+}
