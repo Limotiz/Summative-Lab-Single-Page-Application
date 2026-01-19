@@ -70,3 +70,13 @@ body {
     margin-top: 15px;
     border-radius: 10px;
 }
+
+#synonyms{
+   border: 1px solid black;
+   font-size:12px;
+   color: whitesmoke;
+   padding: 4px 12px;
+   background: #a82020;
+   border-radius: 4px;
+   margin-top: 10px;  
+}

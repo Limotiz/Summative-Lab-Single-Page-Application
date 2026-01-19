@@ -3,6 +3,7 @@ const search_btn = document.getElementById("search_btn");
 const not_found = document.querySelector(".not_found");
 const defination_container = document.querySelector(".def");
 const audio = document.getElementById("audio");
+const synonymsEl =document.getElementById("synonyms")
 const saveBtn = document.getElementById("saveBtn");
 
 // adding event listener for the search button
@@ -49,10 +50,25 @@ return;
     }
 //displaying defination
 
-let definitionText =
+const definitionText =
   data[0].meanings[0].definitions[0].definition;
 
   defination_container.innerText = definitionText;
+
+  // displaying synonyms
+ synonymsEl.innerHTML = "<h3>synonyms</h3>";
+const synonymsList = data[0].meanings[0].synonyms; 
+  
+if (synonymsList.length ===0){
+  synonymsEl.innerHTML += "<p>None available</p>";
+
+}else{
+synonymsList.forEach(syn =>{
+  const span = document.createElement("span")
+  span.textContent = syn;
+  synonymsEl.appendChild(span);
+})
+}
 
 //adding and dispalying the audio
  const audioSrc = data.phonetics.find(p => p.audio)?.audio;
